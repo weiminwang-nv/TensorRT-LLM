@@ -1,4 +1,4 @@
-"""Temporary probe for testing the Pyrefly diff workflow. Do not merge."""
+"""Temporary probe for testing the Pyrefly check workflow. Do not merge."""
 
 
 def scale(value: int, factor: int) -> int:
@@ -6,4 +6,4 @@ def scale(value: int, factor: int) -> int:
 
 
 def run() -> int:
-    return scale(1) + undefined_probe_name + another_undefined_name
+    return scale(1, 2)
