@@ -69,7 +69,7 @@ jobs:
           git -C "$PYREFLY_MERGED_ROOT" restore --source "$base_sha" --worktree -- pyproject.toml scripts
       - name: Install target branch dependencies
         id: install
-        timeout-minutes: 15
+        timeout-minutes: 1
         working-directory: ${{ env.PYREFLY_BASE_ROOT }}
         # Without the project dependencies every third-party import is a diagnostic.
         # requirements-dev.txt also pins Pyrefly. The CUDA wheels are large, so keep no
