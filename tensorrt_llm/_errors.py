@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+# Test only: three extra lines.
+# They move every line below.
+# Do not merge.
 """Error categories, the exception classes that declare them, and standard hints.
 
 A category says what went wrong, and so who acts on it. A raise site that knows

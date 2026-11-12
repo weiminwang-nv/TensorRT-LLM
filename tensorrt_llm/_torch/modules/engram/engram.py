@@ -40,7 +40,7 @@ from transformers import AutoTokenizer
 from tensorrt_llm._torch.host_staging import copy_host_to_device
 from tensorrt_llm._utils import prefer_pinned
 
-from ._decode_hash import _decode_hash_kernel
+from ._decode_hash_impl import _decode_hash_kernel
 
 # Default Engram embedding vocabulary size per n-gram level.
 # Derived from the DeepSeek-V3 tokenizer vocab size (129280) scaled by 5.
