@@ -28,10 +28,16 @@ jobs:
     env:
       # actions/checkout skips LFS only for its own git commands.
       GIT_LFS_SKIP_SMUDGE: 1
-      PYREFLY_BASE_ROOT: ${{ github.workspace }}/../pyrefly-base
-      PYREFLY_MERGED_ROOT: ${{ github.workspace }}/../pyrefly-merged
-      PYREFLY_REPORT_DIR: ${{ github.workspace }}/../pyrefly-diff
     steps:
+      # upload-artifact rejects a path that contains `..`, and job-level env cannot use the
+      # runner context, so the scan directories are set here.
+      - name: Choose scan directories
+        run: |
+          {
+            echo "PYREFLY_BASE_ROOT=$RUNNER_TEMP/pyrefly-base"
+            echo "PYREFLY_MERGED_ROOT=$RUNNER_TEMP/pyrefly-merged"
+            echo "PYREFLY_REPORT_DIR=$RUNNER_TEMP/pyrefly-diff"
+          } >> "$GITHUB_ENV"
       - uses: actions/checkout@v6
         with:
           # The merge needs full history; file contents are fetched only when used.
