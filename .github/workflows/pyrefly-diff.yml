@@ -65,8 +65,6 @@ jobs:
             > "$PYREFLY_REPORT_DIR/changes"
           # Both scans use the target branch's Pyrefly configuration and wrapper scripts.
           git -C "$PYREFLY_MERGED_ROOT" restore --source "$base_sha" --worktree -- pyproject.toml scripts
-      - name: "[test] Disk before install"
-        run: df -h / && nproc && free -g | head -2
       - name: Install target branch dependencies
         id: install
         timeout-minutes: 15
@@ -74,14 +72,7 @@ jobs:
         # Without the project dependencies every third-party import is a diagnostic.
         # requirements-dev.txt also pins Pyrefly. The CUDA wheels are large, so keep no
         # second copy of them in the pip cache.
-        run: python3 -m pip install --no-cache-dir -r requirements-dev.txt
-      - name: "[test] Disk after install"
-        if: ${{ !cancelled() }}
-        run: |
-          df -h /
-          du -sh "$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')"
-          python3 -m pip --version
-          echo "installed distributions: $(python3 -m pip list 2>/dev/null | tail -n +3 | wc -l)"
+        run: python3 -m pip install "$(sed -n '/^pyrefly==/p' requirements-dev.txt)"
       - name: Check target branch
         id: base_check
         timeout-minutes: 5
