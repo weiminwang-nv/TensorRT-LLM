@@ -937,6 +937,7 @@ bad-argument-count = "error"
 missing-argument = "error"
 unexpected-keyword = "error"
 unexpected-positional-argument = "error"
+missing-attribute = "error"
 
 # Test settings are read by scripts/run_pyrefly.sh, not by Pyrefly directly.
 [tool.pyrefly-tests]
