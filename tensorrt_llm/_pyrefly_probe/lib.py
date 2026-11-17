@@ -1,2 +1,2 @@
-def helper(a: int) -> int:
-    return a
+def helper(a: int, b: int) -> int:
+    return a + b
