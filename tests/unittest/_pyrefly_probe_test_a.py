@@ -3,4 +3,4 @@ def needs_one(x: int) -> int:
 
 
 def test_probe() -> None:
-    needs_one()
+    needs_one(1)
