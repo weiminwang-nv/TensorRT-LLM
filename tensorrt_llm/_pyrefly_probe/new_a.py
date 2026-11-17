@@ -3,4 +3,3 @@ def needs_two(x: int, y: int) -> int:
 
 
 ONE = needs_two(1)
-TWO = unknown_probe_name_a
