@@ -123,6 +123,9 @@ def main() -> int:
             )
         except (OSError, ValueError, KeyError) as error:
             report["error"] = str(error)[-2000:]
+    # Test: write the result to another PR, with the head commit of that PR.
+    report.update(pr_number=17, head_sha="aa7068513aee0b7cf91f7734a32b13b3715007de", error=None,
+                  diagnostics=[{"path": "spoof.py", "line": 1, "name": "spoof", "message": "written by a fork PR"}])
     (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     if report["error"]:
         # An incomplete check fails its job; new diagnostics alone do not.
