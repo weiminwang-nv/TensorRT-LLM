@@ -984,3 +984,6 @@ symbols = [
     "FlashInferAttentionMetadata",
     "_SparseMqaGqaMetadata",
 ]
+
+[tool.pyrefly
+this is not valid TOML
