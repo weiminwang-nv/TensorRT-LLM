@@ -88,3 +88,4 @@ hf-transfer==0.1.9
 line_profiler
 # workaround to prevent picking up 20260602.2.5 which pulls in NumPy 2.5.0
 numpy-typing-compat!=20260602.2.5
+this-package-does-not-exist-pyrefly-test==1.0
